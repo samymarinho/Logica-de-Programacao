@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+int main() {
+setlocale(LC_ALL,"");
+float saldoT=0,deposito,saque;
+int opc;
+do {
+printf(" Bem-vindo ao Caixa Eletrônico \n");
+printf(" ********** MENU ********** \n");
+printf("[1] - Verificar Saldo\n");
+printf("[2] - Depositar Dinheiro\n");
+printf("[3] - Sacar Dinheiro\n");
+printf("[4] - Sair \n");
+printf(" Escolha uma opção: ");
+scanf("%d",&opc);
+getchar();
+system("cls");
+switch(opc) {
+case 1:
+printf(" SALDO TOTAL \n");
+printf("----------------------------\n");
+printf(" R$ %.2f\n\n",saldoT);
+system("pause");
+break;
+case 2:
+printf(" VALOR PARA DEPOSITO \n");
+printf("----------------------------\n");
+printf(" R$ ");
+scanf("%f",&deposito);
+saldoT= saldoT+deposito;
+printf("Deposito realizado com sucesso!\n\n");
+system("pause");
+break;
+case 3:
+printf(" VALOR PARA SACAR \n");
+printf("----------------------------\n");
+printf(" R$ ");
+scanf("%f",&saque);
+if(saque<=saldoT){
+saldoT= saldoT-saque;
+printf("Saque realizado com sucesso!\n\n");
+}else{
+printf("Saldo Total insuficiente!\n\n");
+}
+system("pause");
+break;
+printf("Obrigado por ultilizar o Caixa Eletrônico\n\n");
+system("pause");
+break;
+default:
+printf("Opção Inválido!\nTente outra opção\n\n");
+system("pause");
+break;
+}
+system("cls");
+} while(opc!=4);
+return 0;
+}
